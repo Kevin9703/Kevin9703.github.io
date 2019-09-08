@@ -302,7 +302,7 @@
 
   
 
-
+  
 
         </div>
         
@@ -573,6 +573,23 @@
 
 
 
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '32a5d051a82abdc51b27',
+      clientSecret: 'ec225fd5a1ca5ef4a6eaaba49fdefe2d8bcf6b90',
+      repo: 'kevin9703.github.io',
+      owner: 'Kevin9703',
+      admin: ['kevin9703'],
+      id: location.pathname,
+      distractionFreeMode: 'false'
+    })
+    gitalk.render('gitalk-container')
+  </script>
 
 
   

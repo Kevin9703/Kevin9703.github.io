@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -97,7 +97,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -315,16 +315,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/09/08/1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/09/08/1/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -396,15 +386,8 @@
           
 
   
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
-    </div>
 
-  
 
-  
 
         </div>
         
@@ -524,7 +507,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -624,6 +607,13 @@
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
@@ -665,46 +655,26 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'Kevin9703',
-            repo: 'kevin9703.github.io',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: 'ec225fd5a1ca5ef4a6eaaba49fdefe2d8bcf6b90',
-            
-                client_id: '32a5d051a82abdc51b27'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
 
 
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '32a5d051a82abdc51b27',
+          clientSecret: 'ec225fd5a1ca5ef4a6eaaba49fdefe2d8bcf6b90',
+          repo: 'kevin9703.github.io',
+          owner: 'Kevin9703',
+          admin: ['Kevin9703'],
+          id: md5(window.location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')
+       </script>
 
 
 

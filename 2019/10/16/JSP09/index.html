@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JSP,Cookie,">
+  <meta name="keywords" content="JSP,session,">
 
 
 
@@ -79,23 +79,20 @@
 
 
 
-<meta name="description" content="response响应对象   提供的方法123void add Cookie(Cookie cookie);  // 服务端向客户端增加cookie对象  void sendRedirect(String location) throws IOException;  // 页面跳转的一种方式（重定向）void setContetType(String type);  // 设置服务端响应的编码（设">
-<meta name="keywords" content="JSP,Cookie">
+<meta name="description" content="session机制客户端第一次请求服务端时，（jsessionid-sessionid）服务端会产生一个session对象（用于保存该客户的信息）；并且每个session对象都会有一个唯一的sessionId (用于区分其他session)；服务端由会产生一个cookie，并且该cookie的name=JSESSIONID，value=服务端sessionId的值；然后服务端会在响应客户端的同时将">
+<meta name="keywords" content="JSP,session">
 <meta property="og:type" content="article">
-<meta property="og:title" content="response、请求转发和重定向、cookie">
-<meta property="og:url" content="http://yoursite.com/2019/10/16/JSP07/index.html">
+<meta property="og:title" content="session与cookie问题以及application">
+<meta property="og:url" content="http://yoursite.com/2019/10/16/JSP09/index.html">
 <meta property="og:site_name" content="Kevin&#39;s blog">
-<meta property="og:description" content="response响应对象   提供的方法123void add Cookie(Cookie cookie);  // 服务端向客户端增加cookie对象  void sendRedirect(String location) throws IOException;  // 页面跳转的一种方式（重定向）void setContetType(String type);  // 设置服务端响应的编码（设">
+<meta property="og:description" content="session机制客户端第一次请求服务端时，（jsessionid-sessionid）服务端会产生一个session对象（用于保存该客户的信息）；并且每个session对象都会有一个唯一的sessionId (用于区分其他session)；服务端由会产生一个cookie，并且该cookie的name=JSESSIONID，value=服务端sessionId的值；然后服务端会在响应客户端的同时将">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/10/16/JSP07/2019-10-16-203858.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/16/JSP07/2019-10-16-203742.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/16/JSP07/2019-10-16-205951.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/16/JSP07/2019-10-16-212617.png">
-<meta property="og:updated_time" content="2019-10-16T14:46:11.853Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/16/JSP09/2019-10-17214945.png">
+<meta property="og:updated_time" content="2019-10-17T14:51:28.925Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="response、请求转发和重定向、cookie">
-<meta name="twitter:description" content="response响应对象   提供的方法123void add Cookie(Cookie cookie);  // 服务端向客户端增加cookie对象  void sendRedirect(String location) throws IOException;  // 页面跳转的一种方式（重定向）void setContetType(String type);  // 设置服务端响应的编码（设">
-<meta name="twitter:image" content="http://yoursite.com/2019/10/16/JSP07/2019-10-16-203858.png">
+<meta name="twitter:title" content="session与cookie问题以及application">
+<meta name="twitter:description" content="session机制客户端第一次请求服务端时，（jsessionid-sessionid）服务端会产生一个session对象（用于保存该客户的信息）；并且每个session对象都会有一个唯一的sessionId (用于区分其他session)；服务端由会产生一个cookie，并且该cookie的name=JSESSIONID，value=服务端sessionId的值；然后服务端会在响应客户端的同时将">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/16/JSP09/2019-10-17214945.png">
 
 
 
@@ -125,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/16/JSP07/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/16/JSP09/">
 
 
 
 
 
-  <title>response、请求转发和重定向、cookie | Kevin's blog</title>
+  <title>session与cookie问题以及application | Kevin's blog</title>
   
 
 
@@ -278,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/16/JSP07/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/16/JSP09/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kevin">
@@ -295,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">response、请求转发和重定向、cookie</h1>
+          <h1 class="post-title" itemprop="name headline">session与cookie问题以及application</h1>
         
 
         <div class="post-meta">
@@ -307,7 +304,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-16T19:56:42+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-16T23:15:56+08:00">
                 2019-10-16
               </time>
             
@@ -358,7 +355,7 @@
 
           
           
-             <span id="/2019/10/16/JSP07/" class="leancloud_visitors" data-flag-title="response、请求转发和重定向、cookie">
+             <span id="/2019/10/16/JSP09/" class="leancloud_visitors" data-flag-title="session与cookie问题以及application">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -389,36 +386,39 @@
       
 
       
-        <h1 id="response"><a href="#response" class="headerlink" title="response"></a>response</h1><p><strong>响应对象</strong>  </p>
-<h2 id="提供的方法"><a href="#提供的方法" class="headerlink" title="提供的方法"></a>提供的方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> add <span class="title">Cookie</span><span class="params">(Cookie cookie)</span></span>;  <span class="comment">// 服务端向客户端增加cookie对象  </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sendRedirect</span><span class="params">(String location)</span> <span class="keyword">throws</span> IOException</span>;  <span class="comment">// 页面跳转的一种方式（重定向）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setContetType</span><span class="params">(String type)</span></span>;  <span class="comment">// 设置服务端响应的编码（设置服务端的contentType类型）</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="示例：登录"><a href="#示例：登录" class="headerlink" title="示例：登录"></a>示例：登录</h2><p><em>login.jsp -&gt; check.jsp -&gt; success.jsp</em></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">login.jsp</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form action=<span class="string">"check.jsp"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">        用户名：&lt;input type=<span class="string">"text"</span> name=<span class="string">"uname"</span>&gt;&lt;br/&gt;</span><br><span class="line">        密码：&lt;input type=<span class="string">"password"</span> name=<span class="string">"upwd"</span>&gt;&lt;br/&gt;</span><br><span class="line">        &lt;input type=<span class="string">"submit"</span> value=<span class="string">"登录"</span>&gt;&lt;br/&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">check.jsp</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">        String name = request.getParameter(<span class="string">"uname"</span>);</span><br><span class="line">        String pwd = request.getParameter(<span class="string">"upwd"</span>);</span><br><span class="line">        <span class="keyword">if</span>(name.equals(<span class="string">"Kevin"</span>) &amp;&amp; pwd.equals(<span class="string">"123"</span>))&#123;</span><br><span class="line">            <span class="comment">// response.sendRedirect("success.jsp"); </span></span><br><span class="line">            <span class="comment">// 重定向 页面跳转，数据丢失 地址栏改变(success.jsp)</span></span><br><span class="line">            request.getRequestDispatcher(<span class="string">"success.jsp"</span>).forward(request,response);  </span><br><span class="line">            <span class="comment">// 请求转发可以获取到数据（任然保留转发时的页面）并且地址栏没有变，任然是check.jsp</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            out.print(<span class="string">"用户名或密码有误"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    %&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">success.jsp</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    登陆成功！&lt;br/&gt;</span><br><span class="line">    欢迎您：</span><br><span class="line">    &lt;%</span><br><span class="line">        String name = request.getParameter(<span class="string">"uname"</span>);</span><br><span class="line">        out.print(name);</span><br><span class="line">    %&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-
-<p>重定向：<br><img src="/2019/10/16/JSP07/2019-10-16-203858.png" alt="avatar"><br>请求转发：<br><img src="/2019/10/16/JSP07/2019-10-16-203742.png" alt="avatar"></p>
-<h2 id="请求转发与重定向的区别"><a href="#请求转发与重定向的区别" class="headerlink" title="请求转发与重定向的区别"></a>请求转发与重定向的区别</h2><p><img src="/2019/10/16/JSP07/2019-10-16-205951.png" alt="avatar"></p>
-<h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><p>客户端，不是内置对象：Cookie是由<strong>服务端生成</strong>的，再发<strong>送给客户端保存。</strong><br>相当于本地缓存的作用：作用客户端 -&gt; 服务端<br>作用提高访问服务端的效率，但是安全性较差。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Cookie:key=value</span><br><span class="line">javax.servlet.http.Cookie</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Cookie</span><span class="params">(String name,String value)</span></span></span><br><span class="line"><span class="function">String <span class="title">getName</span><span class="params">()</span></span>;  <span class="comment">// 获取name</span></span><br><span class="line"><span class="function">String <span class="title">getValue</span><span class="params">()</span></span>;  <span class="comment">// 获取value</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setMaxAge</span><span class="params">(<span class="keyword">int</span> expiry)</span></span>;  <span class="comment">// 最大有效期（秒）</span></span><br></pre></td></tr></table></figure>
-
-<p>服务端准备Cookie：response.addCookie(Cookie cookie);<br>页面跳转（转发，重定向）<br>客户端获取Cookie：request.getCookies();</p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    <span class="comment">//服务端</span></span><br><span class="line">    Cookie cookie1 = <span class="keyword">new</span> Cookie(<span class="string">"name"</span>,<span class="string">"Kevin"</span>);</span><br><span class="line">    Cookie cookie2 = <span class="keyword">new</span> Cookie(<span class="string">"pwd"</span>,<span class="string">"123"</span>);</span><br><span class="line"></span><br><span class="line">    response.addCookie(cookie1);</span><br><span class="line">    response.addCookie(cookie2);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//页面跳转到客户端（转发、重定向）</span></span><br><span class="line">    response.sendRedirect(<span class="string">"result.jsp"</span>);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    <span class="comment">//客户端</span></span><br><span class="line">    Cookie[] cookies = request.getCookies();</span><br><span class="line">    <span class="keyword">for</span>(Cookie cookie:cookies)&#123;</span><br><span class="line">        out.print(cookie.getName()+<span class="string">"--"</span>+cookie.getValue()+<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2019/10/16/JSP07/2019-10-16-212617.png" alt="avatar"></p>
+        <h1 id="session"><a href="#session" class="headerlink" title="session"></a>session</h1><h2 id="机制"><a href="#机制" class="headerlink" title="机制"></a>机制</h2><p>客户端第一次请求服务端时，（jsessionid-sessionid）服务端会产生一个session对象（用于保存该客户的信息）；<br>并且每个session对象都会有一个<strong>唯一</strong>的<em>sessionId</em> (用于区分其他session)；<br>服务端由会产生一个cookie，并且该cookie的name=JSESSIONID，value=服务端sessionId的值；<br>然后服务端会在响应客户端的同时将该cookie发送给客户端，至此客户端就有了一cookie(JSESSIONID)；<br>因此，客户端的cookie就可以和服务端的session<strong>一一对应</strong>（JSESSIONID - sessionID）；<br>客户端第二/n次请求服务端时：服务端会先用客户端cookie种的JSESSIONID 去服务端的session中匹配sessionid，如果匹配成功（cookie  jsessionid和sesion sessionid），说明此用户不是第一次访问，无需登录；<br><br></p>
 <ul>
-<li>服务端增加Cookie：response对象；客户端获取对象：request对象。 </li>
-<li>不能直接获取某一个单独对象，只能一次性将全部的Cookie拿到。</li>
+<li>session存储在服务器 </li>
+<li>session是在同一个用户（客户）请求时共享</li>
 </ul>
-<p>除了自己设置的Cookie对象外，还有一个name为JSESSIONID的Cookie</p>
-<h2 id="使用Cookie实现记住用户名功能"><a href="#使用Cookie实现记住用户名功能" class="headerlink" title="使用Cookie实现记住用户名功能"></a>使用Cookie实现记住用户名功能</h2><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    <span class="comment">//服务端</span></span><br><span class="line">    request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">    String name = request.getParameter(<span class="string">"uname"</span>);</span><br><span class="line">    String pwd = request.getParameter(<span class="string">"upwd"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将用户名加入到Cookie中</span></span><br><span class="line">    Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"name"</span>,name);</span><br><span class="line">    response.addCookie(cookie);</span><br><span class="line"></span><br><span class="line">    response.sendRedirect(<span class="string">"A.jsp"</span>);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getId</span><span class="params">()</span></span>;  <span class="comment">// 获取sessionId</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isNew</span><span class="params">()</span></span>;  <span class="comment">// 判断是否是新用户</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">invalidate</span><span class="params">()</span></span>;  <span class="comment">// 使session失效</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setAttribute</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">object <span class="title">getAttrivute</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> setMaxInactiveInterval;  <span class="comment">// 设置最大有效非活动时间（秒）</span></span><br><span class="line"><span class="keyword">int</span> getMaxInactiveInterval;  <span class="comment">// 获取最大有效非活动时间</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    String uname = <span class="keyword">null</span>;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    Cookie[] cookies = request.getCookies();</span><br><span class="line">    <span class="keyword">for</span>(Cookie cookie:cookies)&#123;</span><br><span class="line">        <span class="keyword">if</span>(cookie.getName().equals(<span class="string">"uname"</span>))&#123;</span><br><span class="line">            uname = cookie.getValue();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;form action=<span class="string">"check.jsp"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">    用户名：&lt;input type=<span class="string">"text"</span> name=<span class="string">"uname"</span> value=<span class="string">"&lt;%=(uname==null?"</span><span class="string">":uname)%&gt;"</span>&gt;&lt;br/&gt;</span><br><span class="line">    密码：&lt;input type=<span class="string">"password"</span> name=<span class="string">"upwd"</span>&gt;&lt;br/&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"登录"</span>&gt;&lt;br/&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="实例：登录"><a href="#实例：登录" class="headerlink" title="实例：登录"></a>实例：登录</h2><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">check.jsp</span><br><span class="line">    &lt;%</span><br><span class="line">        request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">        String name = request.getParameter(<span class="string">"uname"</span>);</span><br><span class="line">        String pwd = request.getParameter(<span class="string">"upwd"</span>);</span><br><span class="line">        <span class="keyword">if</span>(name.equals(<span class="string">"Kevin"</span>) &amp;&amp; pwd.equals(<span class="string">"123"</span>))&#123;</span><br><span class="line">            <span class="comment">//只用登陆成功session中才会存在uname和pwd</span></span><br><span class="line">             session.setAttribute(<span class="string">"uname"</span>,name);</span><br><span class="line">             session.setAttribute(<span class="string">"upwd"</span>,pwd);</span><br><span class="line">             session.setMaxInactiveInterval(<span class="number">10</span>);</span><br><span class="line">             request.getRequestDispatcher(<span class="string">"welcome.jsp"</span>).forward(request,response);</span><br><span class="line"><span class="comment">//            response.sendRedirect("welcome.jsp");</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            response.sendRedirect(<span class="string">"login.jsp"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    %&gt;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">welcome.jsp</span><br><span class="line">    欢迎，</span><br><span class="line">    &lt;%</span><br><span class="line">        String name = (String) session.getAttribute(<span class="string">"uname"</span>);</span><br><span class="line">        <span class="keyword">if</span>(name!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            out.print(name);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            response.sendRedirect(<span class="string">"login.jsp"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>客户端在第一次请求服务端时，如果服务端发现此请求没有JESSIONID，则会创建一个拥有name = JSESIONID的cookie并返回给客户端</p>
+<p>Cookie：</p>
+<ul>
+<li><strong>不是内置对象，要使用必须new</strong></li>
+<li>但是，<strong>服务端会自动生成</strong>一个（服务端自动new一个cookie）name = JSESIONID的cookie并返回给客户端</li>
+</ul>
+<h2 id="cookis与session的区别"><a href="#cookis与session的区别" class="headerlink" title="cookis与session的区别"></a>cookis与session的区别</h2><p><img src="/2019/10/16/JSP09/2019-10-17214945.png" alt="avatar"><br><br></p>
+<h1 id="JSP9大内置对象"><a href="#JSP9大内置对象" class="headerlink" title="JSP9大内置对象"></a>JSP9大内置对象</h1><blockquote>
+<p>pageContext JSP页面容器<br>request 请求对象<br>session 会话对象<br>application 全局对象<br>response 响应对象<br>config 配置对象（服务器配置信息）<br>out 输出对象<br>page 当前JSP页面对象（相当于java中的this）<br>exception 异常对象   </p>
+</blockquote>
+<h2 id="application-全局对象"><a href="#application-全局对象" class="headerlink" title="application 全局对象"></a>application 全局对象</h2><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getContextPath</span><span class="params">()</span>  <span class="comment">// 虚拟路径</span></span></span><br><span class="line"><span class="function">String <span class="title">getRealPath</span><span class="params">(String name)</span>  <span class="comment">// 绝对路径</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4个范围对象"><a href="#4个范围对象" class="headerlink" title="4个范围对象"></a>4个范围对象</h2><p>四种范围对象（小-&gt;大）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pageContext  <span class="comment">// JSP页面容器 当前页面有效</span></span><br><span class="line">request  <span class="comment">// 请求对象 同一次请求有效（请求转发有效，重定向无效）</span></span><br><span class="line">session  <span class="comment">// 会话对象 同一次会话有效（关闭/切换浏览器后无效 登录-&gt;退出之间全部有效</span></span><br><span class="line">application  <span class="comment">// 全局对象 全局有效（服务器关闭后、其他项目无效）</span></span><br></pre></td></tr></table></figure>
+
+<p>四种范围对象共有的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Object <span class="title">getAttribute</span><span class="params">(String name)</span>  <span class="comment">// 根据属性名，或者属性值</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setAttribute</span><span class="params">(String name,Object obj)</span>  <span class="comment">// 设置属性值（新增，修改）</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeAttribute</span><span class="params">(String name)</span>  <span class="comment">// 根据属性名删除对象</span></span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>以上的四个范围对象，通过<em>setAttribute()</em> 赋值，通过<em>getAttribute()</em> 取值；</li>
+<li>以上范围对象，尽量使用最小的范围，对象范围越大，造成的性能损耗越大</li>
+</ul>
 
       
     </div>
@@ -438,7 +438,7 @@
           
             <a href="/tags/JSP/" rel="tag"># JSP</a>
           
-            <a href="/tags/Cookie/" rel="tag"># Cookie</a>
+            <a href="/tags/session/" rel="tag"># session</a>
           
         </div>
       
@@ -451,15 +451,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/10/16/JSP07/" rel="next" title="response、请求转发和重定向、cookie">
+                <i class="fa fa-chevron-left"></i> response、请求转发和重定向、cookie
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/16/JSP09/" rel="prev" title="session与cookie问题以及application">
-                session与cookie问题以及application <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -620,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#response"><span class="nav-number">1.</span> <span class="nav-text">response</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#提供的方法"><span class="nav-number">1.1.</span> <span class="nav-text">提供的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例：登录"><span class="nav-number">1.2.</span> <span class="nav-text">示例：登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求转发与重定向的区别"><span class="nav-number">1.3.</span> <span class="nav-text">请求转发与重定向的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie"><span class="nav-number">2.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Cookie实现记住用户名功能"><span class="nav-number">2.1.</span> <span class="nav-text">使用Cookie实现记住用户名功能</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#session"><span class="nav-number">1.</span> <span class="nav-text">session</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#机制"><span class="nav-number">1.1.</span> <span class="nav-text">机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例：登录"><span class="nav-number">1.3.</span> <span class="nav-text">实例：登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookis与session的区别"><span class="nav-number">1.4.</span> <span class="nav-text">cookis与session的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JSP9大内置对象"><span class="nav-number">2.</span> <span class="nav-text">JSP9大内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#application-全局对象"><span class="nav-number">2.1.</span> <span class="nav-text">application 全局对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4个范围对象"><span class="nav-number">2.2.</span> <span class="nav-text">4个范围对象</span></a></li></ol></li></ol></div>
             
 
           </div>
